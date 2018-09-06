@@ -4,11 +4,11 @@ from email.mime.text import MIMEText
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
 
-
+#获取该文件路径
 def get_path():
     proDir = os.path.split(os.path.realpath(__file__))[0]
     return proDir
-
+#运行脚本
 def run_test(testcase=[],*devices):
     devices_list = list(devices)
     print(testcase)
@@ -26,7 +26,7 @@ def run_test(testcase=[],*devices):
             print(implement_report)
             os.system(implement_case)
             os.system(implement_report)
-
+#获取测试报告文件
 def get_report_file():
     base_path = get_path()
     report_list = []
@@ -39,7 +39,7 @@ def get_report_file():
     return report_list
 
 
-
+#发送邮件
 def send_email():
     report_list = get_report_file()
     mail_host = 'smtp.hostuc.com'
@@ -75,7 +75,7 @@ def send_email():
         print(u"Error: 无法发送邮件",e)
 
 
-
+#主函数
 if __name__ == "__main__":
 
     #print(get_path())
